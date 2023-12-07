@@ -16,17 +16,17 @@ fun main() {
 
         if (firstScore != secondScore) return@Comparator firstScore - secondScore
 
-        for (i in 0 until 5) {
+        for (i in 0 until 5) { // If the cards have the same score, choose the first digit and score on that, then second...etc.
             firstScore = types.indexOf(first.first[i])
             secondScore = types.indexOf(second.first[i])
 
             if (firstScore != secondScore) return@Comparator firstScore - secondScore
         }
-        throw Exception("fuck")
+        throw Exception("fuck") // Should not happen
     }
     data.sortWith(handComparator)
 
-    for (i in data.indices) count += data[i].second * (i + 1)
+    for (i in data.indices) count += data[i].second * (i + 1) // Multiply bet with position
     println(count)
 }
 
